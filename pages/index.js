@@ -16,7 +16,8 @@ export default function Home() {
       location: e.target.location.value,
       minCustomers: e.target.minCustomers.value,
       maxCustomers: e.target.maxCustomers.value,
-      avgSales: e.target.avgSales.value 
+      avgSales: e.target.avgSales.value,
+      hourlySales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36] 
     };
 
     setCookieStands([...cookieStands, newCookieStand]);
@@ -37,7 +38,7 @@ export default function Home() {
       <main className='font-serif'>
         <CookieStandForm onSubmit={createCookieStandHandler}/>
         <ReportTable cookieStands={cookieStands}/>
-        <Footer/>
+        <Footer cookieStands={cookieStands.length}/>
       </main>
     </>
   )
