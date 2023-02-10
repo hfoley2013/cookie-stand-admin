@@ -24,7 +24,6 @@ export default function Home() {
     console.log(cookieStands);
   }
   
-  
   return (
     <>
       <Head>
@@ -36,9 +35,9 @@ export default function Home() {
       
       <Header/>
       <main className='font-serif'>
-        <CookieStandForm onSubmit={createCookieStandHandler}/>
-        <ReportTable cookieStands={cookieStands}/>
-        <Footer cookieStands={cookieStands.length}/>
+        <CookieStandForm cookieStands={cookieStands}/>
+        <ReportTable cookieStands={cookieStands} />
+        <Footer cookieStands={cookieStands} />
       </main>
     </>
   )

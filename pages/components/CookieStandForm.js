@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function CookieStandForm(props) {
+  
   return(
     <>
       <form onSubmit={props.onSubmit} className='w-full md:w-2/3 p-2 mx-auto my-4 bg-green-400'>
