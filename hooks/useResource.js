@@ -43,7 +43,7 @@ export default function useResource() {
     async function deleteResource(id) {
 
         try {
-            const url = apiUrl + id;
+            const url = apiUrl + id + '/delete/';
             const options = config();
             options.method = "DELETE";
             await fetch(url, options);

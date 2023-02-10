@@ -1,15 +1,16 @@
 import React from 'react';
-import {createResource} from '../../hooks/useResource';
+import useResource, {createResource} from '../../hooks/useResource';
 
-export default function CookieStandForm(props) {
+export default function CookieStandForm() {
   function createCookieStandHandler(e) {
     e.preventDefault();
     
+    const { createResource } = useResource();
     const newCookieStand = {
       location: e.target.location.value,
-      minCustomers: e.target.minCustomers.value,
-      maxCustomers: e.target.maxCustomers.value,
-      avgSales: e.target.avgSales.value,
+      minimum_customers_per_hour: e.target.minCustomers.value,
+      maximum_customers_per_hour: e.target.maxCustomers.value,
+      average_cookies_per_sale: e.target.avgSales.value,
     };
 
     createResource(newCookieStand);

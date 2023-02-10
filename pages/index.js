@@ -4,11 +4,13 @@ import Footer from './components/Footer.js';
 import CookieStandForm from './components/CookieStandForm.js';
 import ReportTable from './components/ReportTable.js';
 import useResource from '@/hooks/useResource.js';
-// import { useAuth } from '@/contexts/auth.js';
+import { useAuth } from '@/contexts/auth.js';
+import LoginForm from './components/LoginForm.js';
 
 export default function Home() {
-  const {resources} = useResource();
-
+  const {resources, deleteResource} = useResource();
+  const { user } = useAuth();
+  console.log(resources)
   return (
     <>
       <Head>
@@ -20,9 +22,16 @@ export default function Home() {
       
       <Header/>
       <main className='font-serif'>
-        <CookieStandForm />
-        <ReportTable cookieStands={resources || []} />
+        {!user ? 
+          <LoginForm />
+          :
+          <>
+            <CookieStandForm />
+            <ReportTable cookieStands={resources || []} deleteStand={deleteResource}/>
+          </>
+        }
         <Footer cookieStands={resources} />
+        
       </main>
     </>
   )
