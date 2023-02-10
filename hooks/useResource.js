@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 
 export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
-import { useAuth } from '@contexts/auth.js';
+import { useAuth } from '@/contexts/auth';
 
 export default function useResource() {
 

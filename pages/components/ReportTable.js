@@ -2,6 +2,7 @@ import React from "react";
 import { hours } from "../api/data";
 
 const ReportTable = ({ cookieStands }) => {
+
   const totalRow = cookieStands.reduce((acc, cookieStand) => {
     return cookieStand.hourlySales.map((sale, i) => acc[i] + sale);
   }, Array(hours.length).fill(0));

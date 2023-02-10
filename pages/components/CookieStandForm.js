@@ -1,10 +1,23 @@
 import React from 'react';
+import {createResource} from '../../hooks/useResource';
 
 export default function CookieStandForm(props) {
-  
+  function createCookieStandHandler(e) {
+    e.preventDefault();
+    
+    const newCookieStand = {
+      location: e.target.location.value,
+      minCustomers: e.target.minCustomers.value,
+      maxCustomers: e.target.maxCustomers.value,
+      avgSales: e.target.avgSales.value,
+    };
+
+    createResource(newCookieStand);
+  }
+
   return(
     <>
-      <form onSubmit={props.onSubmit} className='w-full md:w-2/3 p-2 mx-auto my-4 bg-green-400'>
+      <form onSubmit={createCookieStandHandler} className='w-full md:w-2/3 p-2 mx-auto my-4 bg-green-400'>
         <h2 className='text-2xl text-center'>Create Cookie Stand</h2>
         <div className="flex justify-around p-1 my-2">
           <label htmlFor='location' className='flex-none text-xs mr-2'>Location</label>
