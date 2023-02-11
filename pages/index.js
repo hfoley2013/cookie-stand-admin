@@ -1,30 +1,16 @@
 import Head from 'next/head'
-import { useState } from 'react';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import CookieStandForm from './components/CookieStandForm.js';
 import ReportTable from './components/ReportTable.js';
+import useResource from '@/hooks/useResource.js';
+import { useAuth } from '@/contexts/auth.js';
+import LoginForm from './components/LoginForm.js';
 
 export default function Home() {
-  
-  const [cookieStands, setCookieStands] = useState([]);
+  const {resources, deleteResource} = useResource();
+  const { user } = useAuth();
 
-  function createCookieStandHandler(e) {
-    e.preventDefault();
-    
-    const newCookieStand = {
-      location: e.target.location.value,
-      minCustomers: e.target.minCustomers.value,
-      maxCustomers: e.target.maxCustomers.value,
-      avgSales: e.target.avgSales.value,
-      hourlySales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36] 
-    };
-
-    setCookieStands([...cookieStands, newCookieStand]);
-    console.log(cookieStands);
-  }
-  
-  
   return (
     <>
       <Head>
@@ -34,11 +20,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Header/>
+      <Header />
       <main className='font-serif'>
-        <CookieStandForm onSubmit={createCookieStandHandler}/>
-        <ReportTable cookieStands={cookieStands}/>
-        <Footer cookieStands={cookieStands.length}/>
+        {!user ? 
+          <LoginForm />
+          :
+          <>
+            <CookieStandForm />
+            <ReportTable cookieStands={resources || []} deleteStand={deleteResource}/>
+          </>
+        }
+        <Footer cookieStands={resources} />
+        
       </main>
     </>
   )
