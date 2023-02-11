@@ -10,7 +10,7 @@ import LoginForm from './components/LoginForm.js';
 export default function Home() {
   const {resources, deleteResource} = useResource();
   const { user } = useAuth();
-  console.log(resources)
+
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Header/>
+      <Header />
       <main className='font-serif'>
         {!user ? 
           <LoginForm />

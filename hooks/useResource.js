@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 
 export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
-import { useAuth } from '@/contexts/auth';
+import { useAuth } from '../contexts/auth';
 
 export default function useResource() {
 
@@ -43,7 +43,7 @@ export default function useResource() {
     async function deleteResource(id) {
 
         try {
-            const url = apiUrl + id + '/delete/';
+            const url = apiUrl + id;
             const options = config();
             options.method = "DELETE";
             await fetch(url, options);
