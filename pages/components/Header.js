@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/auth.js';
 const Header = () => {
   const { user, logout } = useAuth();
   return (
-  <div className=''>
+  <div>
     <header className="flex bg-emerald-400 text-black-900 p-3 text-4xl items-center">
       Cookie Stand Admin
       <div className="flex-grow"></div>
