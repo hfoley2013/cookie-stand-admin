@@ -30,15 +30,15 @@ export default function CookieStandForm() {
         <div className='flex justify-between'>
           <div className='mx-1 w-1/3'>
             <label htmlFor='minCustomers' className='block text-sm text-center'>MINIMUM CUSTOMERS PER HOUR</label>
-            <input name='minCustomers' id='minCustomers' type='number' step='1' placeholder='0' className='text-sm text-center flex-grow' />
+            <input name='minCustomers' id='minCustomers' type='number' step='1' placeholder='0' className='block text-sm text-center w-full' />
           </div>
           <div className='mx-1 w-1/3'>
             <label htmlFor='maxCustomers' className='block text-sm text-center'>MAXIMUM CUSTOMERS PER HOUR</label>
-            <input name='maxCustomers' id='maxCustomers' type='number' step='1' placeholder='0' className='text-sm text-center' />
+            <input name='maxCustomers' id='maxCustomers' type='number' step='1' placeholder='0' className='block text-sm text-center w-full' />
           </div>
           <div className='mx-1 w-1/3'>
             <label htmlFor='avgSales' className='block text-sm text-center'>AVERAGE COOKIES PER SALE</label>
-            <input name='avgSales' id='avgSales' type='number' step='0.1' placeholder='0' className='text-sm text-center' />
+            <input name='avgSales' id='avgSales' type='number' step='0.1' placeholder='0' className='block text-sm text-center w-full' />
           </div>
         </div>
       </form>
