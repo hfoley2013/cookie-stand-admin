@@ -2,6 +2,7 @@ import React from "react";
 import { hours } from "../api/data";
 
 const ReportTable = ({ cookieStands, deleteStand }) => {
+  
   if (!Array.isArray(cookieStands) || cookieStands.length === 0) {
     return <h2 className='text-2xl text-center mx-auto my-4'>No Cookie Stands Available</h2>;
   }
@@ -9,6 +10,8 @@ const ReportTable = ({ cookieStands, deleteStand }) => {
   const totalRow = cookieStands.reduce((acc, cookieStand) => {
     return cookieStand.hourly_sales.map((sale, i) => acc[i] + sale);
   }, Array(hours.length).fill(0));
+
+  const total = totalRow.reduce((sum, sale) => sum + sale, 0);
   
   function handleDelete(id) {
     deleteStand(id);
