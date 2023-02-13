@@ -6,9 +6,12 @@
 
 ### Links and Resources
 
+* [Cookie Stand Admin: Live Site](https://hfoley-cookie-stand-admin.vercel.app/)
+* [Cookie Stand API: Live Site](https://hfoley-cookie-stand-api.vercel.app/)
 * [NextJS](https://nextjs.org/docs/getting-started)
 * [React](https://reactjs.org/docs/getting-started.html)
 * [TailwindCSS](https://tailwindcss.com/docs/installation)
+* [Vercel](https://vercel.com/docs)
 
 ### Setup
 
